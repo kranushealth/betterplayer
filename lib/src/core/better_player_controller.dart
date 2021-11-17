@@ -1261,10 +1261,7 @@ class BetterPlayerController {
   ///Dispose BetterPlayerController. When [forceDispose] parameter is true, then
   ///autoDispose parameter will be overridden and controller will be disposed
   ///(if it wasn't disposed before).
-  void dispose({bool forceDispose = false}) {
-    if (!betterPlayerConfiguration.autoDispose && !forceDispose) {
-      return;
-    }
+  void dispose() {
     if (!_disposed) {
       if (videoPlayerController != null) {
         pause();

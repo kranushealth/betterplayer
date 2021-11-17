@@ -406,6 +406,7 @@ class _BetterPlayerCupertinoControlsState
   Widget _buildPosition() {
     final position =
         _latestValue != null ? _latestValue!.position : const Duration();
+    final textTheme = Theme.of(context).textTheme;
 
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
@@ -413,7 +414,7 @@ class _BetterPlayerCupertinoControlsState
         BetterPlayerUtils.formatDuration(position),
         style: TextStyle(
           color: _controlsConfiguration.textColor,
-          fontSize: 12.0,
+          fontSize: textTheme.bodyText1?.fontSize,
         ),
       ),
     );
@@ -423,13 +424,16 @@ class _BetterPlayerCupertinoControlsState
     final position = _latestValue != null && _latestValue!.duration != null
         ? _latestValue!.duration! - _latestValue!.position
         : const Duration();
+    final textTheme = Theme.of(context).textTheme;
 
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
       child: Text(
         '-${BetterPlayerUtils.formatDuration(position)}',
-        style:
-            TextStyle(color: _controlsConfiguration.textColor, fontSize: 12.0),
+        style: TextStyle(
+          color: _controlsConfiguration.textColor,
+          fontSize: textTheme.bodyText1?.fontSize,
+        ),
       ),
     );
   }

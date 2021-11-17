@@ -569,6 +569,7 @@ class _BetterPlayerMaterialControlsState
     final duration = _latestValue != null && _latestValue!.duration != null
         ? _latestValue!.duration!
         : Duration.zero;
+    final textTheme = Theme.of(context).textTheme;
 
     return Padding(
       padding: _controlsConfiguration.enablePlayPause
@@ -578,7 +579,7 @@ class _BetterPlayerMaterialControlsState
         text: TextSpan(
             text: BetterPlayerUtils.formatDuration(position),
             style: TextStyle(
-              fontSize: 10.0,
+              fontSize: textTheme.bodyText1?.fontSize,
               color: _controlsConfiguration.textColor,
               decoration: TextDecoration.none,
             ),
